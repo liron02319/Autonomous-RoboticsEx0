@@ -11,6 +11,7 @@ def read_csv(filename):
     data = []
     with open(filename, 'r', encoding='utf-8-sig') as file:
         reader = csv.reader(file)
+        next(reader)
         for row in reader:
             data.append(row)
     return data
@@ -19,7 +20,7 @@ def read_csv(filename):
 def compute_sat_pos(data, gps_time):
     sat_positions = []
     for row in data:
-        if float(row[0]) == gps_time:
+        if row[0] == gps_time:
             sat_x = float(row[2])
             sat_y = float(row[3])
             sat_z = float(row[4])
@@ -55,7 +56,7 @@ def compute_position(data, gps_time):
 
 # Compute positions for all GPS times
 def compute_positions(data):
-    gps_times = set([float(row[0]) for row in data])
+    gps_times = set([row[0] for row in data])
     positions = {}
 
     for gps_time in gps_times:
@@ -69,7 +70,7 @@ def compute_positions(data):
 cwd = os.getcwd()
 
 # Construct the file path
-file_path = os.path.join(cwd, 'gps_log.csv')
+file_path = os.path.join(cwd, 'plot_data.csv')
 
 # Read the CSV file
 data = read_csv(file_path)
