@@ -25,6 +25,9 @@ and based on this data calculates the location of the user with the transmitter 
 ## Students
 
 Amit Steinmetz - 207279373
+
 Liron Cohen - 312324247
+
 Bat-Ya Ashkenazi - 319088381
+
 Maya Hadad - 209963784
